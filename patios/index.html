@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Columbus patios · Columbus Plans</title>
+<meta name="description" content="The Columbus patio guide: rooftops, riverfronts, courtyards and beer gardens, checked against each venue's own listing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400;1,6..72,600&family=Archivo:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <a class="mark" href="../" style="text-decoration:none">Columbus Plans</a>
+  <nav class="dayswitch" id="dayswitch"></nav>
+  <nav class="navlinks"><a href="../">All days</a></nav>
+</div></div>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Columbus Plans · outdoors edition</div>
+  <h1>Patio weather, <em>or close enough.</em></h1>
+  <p class="lede">Rooftops, riverfronts, courtyards and beer gardens across Columbus, checked against each venue's own listing.</p>
+  <p class="sub" id="weather" style="margin-top:16px"></p>
+</div></header>
+<section><div class="wrap" style="padding-top:8px">
+  <div class="filters" id="patioFilters"></div>
+  <div class="grid" id="patioGrid"></div>
+  <p class="empty" id="patioEmpty" hidden>Nothing there yet.</p>
+</div></section>
+<footer><div class="wrap">
+  <h3>How to read this</h3>
+  <p id="researched"></p>
+  <p style="margin-top:22px; font-size:12.5px">Columbus Plans is an independent local guide. Want to sponsor a day? <a class="link" href="mailto:matthew@esbrolabs.com">Say hello</a>.</p>
+</div></footer>
+<script src="../data/patios.js"></script>
+<script src="../app.js"></script>
+</body>
+</html>

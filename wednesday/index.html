@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wednesday plans in Columbus · Columbus Plans</title>
+<meta name="description" content="What to do in Columbus on a Wednesday: standing weekly rituals, new restaurants and bars, comedy, and every one-off event on the calendar. Refreshed five days ahead.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400;1,6..72,600&family=Archivo:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <a class="mark" href="../" style="text-decoration:none">Columbus Plans</a>
+  <nav class="dayswitch" id="dayswitch"></nav>
+  <nav class="navlinks">
+    <a href="#weekly">Every week</a>
+    <a href="#new">New tables</a>
+    <a href="#comedy">Comedy</a>
+    <a href="#calendar">Calendar</a>
+    <a href="../patios/">Patios</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Columbus Plans · one link for every day of the week</div>
+  <h1 id="heroTitle"></h1>
+  <p class="lede" id="heroLede"></p>
+  <div class="strip" id="strip"></div>
+  <p class="sub" style="margin-top:14px">Hours and specials drift. Anything marked <span class="tag warn">verify</span> is worth a call or an Instagram check before you drive.</p>
+</div></header>
+
+<section id="pick"><div class="wrap">
+  <div class="shead"><div></div></div>
+  <div class="spinner">
+    <p class="out" id="plan">Press the button and stop negotiating.</p>
+    <button class="btn" id="spin">Make us a plan</button>
+  </div>
+</div></section>
+
+<section id="weekly"><div class="wrap">
+  <div class="shead"><div></div></div>
+  <div class="filters" id="weeklyFilters"></div>
+  <div class="rows" id="weeklyRows"></div>
+</div></section>
+
+<section id="monthly"><div class="wrap">
+  <div class="shead"><div></div></div>
+  <div class="rows" id="monthlyRows"></div>
+</div></section>
+
+<section id="new"><div class="wrap">
+  <div class="shead"><div></div></div>
+  <div class="filters" id="placeFilters"></div>
+  <div class="grid" id="placeGrid"></div>
+  <p class="empty" id="placeEmpty" hidden>Nothing in that combination: try a wider filter.</p>
+</div></section>
+
+<section id="comedy"><div class="wrap">
+  <div class="shead"><div></div></div>
+  <div class="rows" id="comedyRows"></div>
+  <div id="headliners">
+    <h3 id="hlTitle" style="font-family:Newsreader,Georgia,serif; font-weight:600; font-size:22px; margin:38px 0 0"></h3>
+    <p class="sub" id="hlNote" style="margin-top:6px"></p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Date</th><th>Who</th><th>Box office</th></tr></thead>
+      <tbody id="hlBody"></tbody>
+    </table></div>
+  </div>
+</div></section>
+
+<section id="calendar"><div class="wrap">
+  <div class="shead"><div></div></div>
+  <div class="cal" id="cal"></div>
+</div></section>
+
+<footer><div class="wrap">
+  <h3>How to read this</h3>
+  <p id="researched"></p>
+  <div class="legend">
+    <span class="item"><span class="dot ok"></span> <span id="legendOk"></span></span>
+    <span class="item"><span class="dot warn"></span> Reported but unconfirmed: check before you go</span>
+  </div>
+  <div class="srcs" id="srcs"></div>
+  <p style="margin-top:22px; font-size:12.5px">Columbus Plans is an independent local guide. Want to sponsor a day? <a class="link" href="mailto:matthew@esbrolabs.com">Say hello</a>.</p>
+</div></footer>
+<script src="../data/wednesday.js"></script>
+<script src="../app.js"></script>
+</body>
+</html>

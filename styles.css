@@ -1,0 +1,184 @@
+:root{
+  --ground:#FAF7F9; --surface:#FFFFFF; --surface-2:#F3EEF3;
+  --ink:#171220; --ink-2:#453C50; --muted:#6D6377;
+  --line:#E7DFE8; --line-2:#D6CBD8;
+  --accent:#A82D6B; --accent-ink:#FFFFFF; --accent-wash:#FBEDF4;
+  --ok:#2C7A56; --ok-wash:#E7F4EE;
+  --warn:#8E5C0C; --warn-wash:#FBF1DC;
+  --shadow:0 1px 2px rgba(23,18,32,.05), 0 8px 24px -16px rgba(23,18,32,.28);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#141019; --surface:#1D1825; --surface-2:#251E2F;
+    --ink:#F3EEF5; --ink-2:#CFC5D6; --muted:#A196AD;
+    --line:#302838; --line-2:#3D3347;
+    --accent:#FF74B4; --accent-ink:#1B0F16; --accent-wash:#2C1A26;
+    --ok:#6ED3A5; --ok-wash:#16281F;
+    --warn:#E9B65E; --warn-wash:#2B2113;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#141019; --surface:#1D1825; --surface-2:#251E2F;
+  --ink:#F3EEF5; --ink-2:#CFC5D6; --muted:#A196AD;
+  --line:#302838; --line-2:#3D3347;
+  --accent:#FF74B4; --accent-ink:#1B0F16; --accent-wash:#2C1A26;
+  --ok:#6ED3A5; --ok-wash:#16281F;
+  --warn:#E9B65E; --warn-wash:#2B2113;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Archivo","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px; margin:0 auto; padding:0 22px}
+a{color:inherit}
+a.link{color:var(--accent); text-decoration:none; border-bottom:1px solid color-mix(in srgb, var(--accent) 35%, transparent)}
+a.link:hover{border-bottom-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--ground) 88%, transparent);
+  backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex; align-items:center; gap:20px; height:54px; overflow-x:auto; scrollbar-width:none}
+.topbar .wrap::-webkit-scrollbar{display:none}
+.mark{font-family:"DM Mono",ui-monospace,monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); white-space:nowrap}
+.navlinks{display:flex; gap:18px; margin-left:auto}
+.navlinks a{font-size:13.5px; color:var(--muted); text-decoration:none; white-space:nowrap}
+.navlinks a:hover{color:var(--ink)}
+
+/* ---------- hero ---------- */
+.hero{padding:64px 0 34px; border-bottom:1px solid var(--line)}
+.eyebrow{font-family:"DM Mono",ui-monospace,monospace; font-size:11.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted)}
+h1{
+  font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:clamp(44px,7.5vw,80px);
+  line-height:.98; letter-spacing:-.02em; margin:14px 0 0; text-wrap:balance;
+}
+h1 em{font-style:italic; color:var(--accent)}
+.lede{max-width:60ch; margin:20px 0 0; font-size:17.5px; color:var(--ink-2)}
+
+/* ---------- next thursdays strip ---------- */
+.strip{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1px; background:var(--line);
+  border:1px solid var(--line); border-radius:12px; overflow:hidden; margin:34px 0 6px}
+.strip .cell{background:var(--surface); padding:16px 18px 18px; display:flex; flex-direction:column; gap:7px}
+.strip .cell.now{background:var(--accent-wash)}
+.cell .d{font-family:"DM Mono",ui-monospace,monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.cell.now .d{color:var(--accent)}
+.cell .h{font-family:"Newsreader",Georgia,serif; font-size:20px; line-height:1.2; font-weight:600}
+.cell .s{font-size:13.5px; color:var(--muted); line-height:1.45}
+
+/* ---------- sections ---------- */
+section{padding:56px 0; border-bottom:1px solid var(--line); scroll-margin-top:54px}
+.shead{display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:8px}
+h2{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:clamp(28px,4vw,38px); line-height:1.08; margin:6px 0 0; letter-spacing:-.015em}
+.sub{max-width:58ch; color:var(--muted); font-size:15.5px; margin:10px 0 0}
+
+/* ---------- filters ---------- */
+.filters{display:flex; flex-wrap:wrap; gap:8px; margin:24px 0 26px}
+.chip{
+  font-family:"DM Mono",ui-monospace,monospace; font-size:12px; letter-spacing:.04em;
+  padding:7px 13px; border-radius:999px; border:1px solid var(--line-2); background:transparent;
+  color:var(--muted); cursor:pointer; transition:.15s;
+}
+.chip:hover{color:var(--ink); border-color:var(--ink-2)}
+.chip[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--accent-ink)}
+
+/* ---------- cards ---------- */
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(288px,1fr)); gap:14px}
+.card{
+  background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px 18px 16px;
+  display:flex; flex-direction:column; gap:9px; box-shadow:var(--shadow);
+}
+.card h3{font-family:"Newsreader",Georgia,serif; font-size:21px; font-weight:600; line-height:1.15; margin:0; letter-spacing:-.01em}
+.meta{font-family:"DM Mono",ui-monospace,monospace; font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); display:flex; flex-wrap:wrap; gap:8px}
+.meta span:not(:last-child)::after{content:" ·"; color:var(--line-2)}
+.card p{margin:0; font-size:14.5px; color:var(--ink-2); line-height:1.5}
+.card .foot{margin-top:auto; padding-top:11px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.hours{font-family:"DM Mono",ui-monospace,monospace; font-size:12.5px; font-variant-numeric:tabular-nums; display:inline-flex; align-items:center; gap:7px; color:var(--ink-2)}
+.dot{width:7px; height:7px; border-radius:50%; flex:none}
+.dot.ok{background:var(--ok)} .dot.warn{background:var(--warn)}
+.tag{font-family:"DM Mono",ui-monospace,monospace; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; padding:3px 8px; border-radius:5px; white-space:nowrap}
+.tag.ok{background:var(--ok-wash); color:var(--ok)}
+.tag.warn{background:var(--warn-wash); color:var(--warn)}
+.tag.new{background:var(--accent-wash); color:var(--accent)}
+.card a.go{font-size:13px; color:var(--accent); text-decoration:none; font-weight:500; white-space:nowrap}
+.card a.go:hover{text-decoration:underline}
+.empty{color:var(--muted); font-size:15px; padding:22px 0}
+
+/* ---------- ritual rows ---------- */
+.rows{display:flex; flex-direction:column; border-top:1px solid var(--line)}
+.row{display:grid; grid-template-columns:112px 1fr auto; gap:20px; padding:16px 4px; border-bottom:1px solid var(--line); align-items:baseline}
+.row .time{font-family:"DM Mono",ui-monospace,monospace; font-size:13px; color:var(--accent); font-variant-numeric:tabular-nums; letter-spacing:.02em}
+.row .body h3{font-family:"Newsreader",Georgia,serif; font-size:19px; font-weight:600; margin:0 0 3px; letter-spacing:-.01em}
+.row .body p{margin:0; font-size:14.5px; color:var(--ink-2)}
+.row .body .where{font-family:"DM Mono",ui-monospace,monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:5px}
+.row .side{display:flex; flex-direction:column; align-items:flex-end; gap:6px; text-align:right}
+.price{font-family:"DM Mono",ui-monospace,monospace; font-size:13px; white-space:nowrap; font-variant-numeric:tabular-nums}
+@media (max-width:640px){
+  .row{grid-template-columns:1fr; gap:6px}
+  .row .side{align-items:flex-start; text-align:left; flex-direction:row; flex-wrap:wrap}
+}
+
+/* ---------- spinner ---------- */
+.spinner{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:26px; margin-top:26px; box-shadow:var(--shadow)}
+.spinner .out{font-family:"Newsreader",Georgia,serif; font-size:clamp(20px,3vw,27px); line-height:1.35; margin:0 0 18px; text-wrap:balance; min-height:2.7em}
+.spinner .out b{font-weight:600; color:var(--accent); font-style:italic}
+.btn{
+  font-family:"DM Mono",ui-monospace,monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+  background:var(--accent); color:var(--accent-ink); border:0; padding:11px 20px; border-radius:8px; cursor:pointer;
+}
+.btn:hover{filter:brightness(1.08)}
+
+/* ---------- calendar ---------- */
+.cal{display:flex; flex-direction:column; gap:0; border-top:1px solid var(--line)}
+.calrow{display:grid; grid-template-columns:132px 1fr; gap:24px; padding:20px 4px; border-bottom:1px solid var(--line)}
+.calrow .date{position:sticky; top:70px; align-self:start}
+.calrow .date .m{font-family:"DM Mono",ui-monospace,monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+.calrow .date .n{font-family:"Newsreader",Georgia,serif; font-size:38px; line-height:1; font-weight:600; font-variant-numeric:tabular-nums}
+.calrow ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px}
+.calrow li{font-size:15px; color:var(--ink-2); display:flex; gap:9px; align-items:baseline; flex-wrap:wrap}
+.calrow li b{font-weight:600; color:var(--ink)}
+.calrow li > span:last-child{flex:1 1 260px; min-width:0}
+.pin{font-family:"DM Mono",ui-monospace,monospace; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); border:1px solid var(--line-2); padding:2px 7px; border-radius:5px; white-space:nowrap}
+.pin.star{color:var(--accent); border-color:color-mix(in srgb, var(--accent) 45%, transparent)}
+@media (max-width:640px){ .calrow{grid-template-columns:1fr; gap:10px} .calrow .date{position:static; display:flex; align-items:baseline; gap:8px} .calrow .date .n{font-size:26px} }
+
+/* ---------- table ---------- */
+.tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:12px; background:var(--surface); margin-top:22px}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:14.5px}
+th,td{text-align:left; padding:11px 16px; border-bottom:1px solid var(--line)}
+th{font-family:"DM Mono",ui-monospace,monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:400}
+tr:last-child td{border-bottom:0}
+td.num{font-family:"DM Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
+
+/* ---------- footer ---------- */
+footer{padding:48px 0 72px; color:var(--muted); font-size:14px}
+footer h3{font-family:"Newsreader",Georgia,serif; font-size:20px; color:var(--ink); margin:0 0 10px; font-weight:600}
+footer p{max-width:66ch}
+.srcs{display:flex; flex-wrap:wrap; gap:6px 14px; margin-top:14px; font-size:13px}
+.srcs a{color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line-2)}
+.srcs a:hover{color:var(--accent); border-bottom-color:var(--accent)}
+.legend{display:flex; gap:18px; flex-wrap:wrap; margin-top:18px; font-size:13px; align-items:center}
+.legend .item{display:inline-flex; align-items:center; gap:7px}
+@media (prefers-reduced-motion:reduce){*{animation:none !important; transition:none !important}}
+
+/* ---------- landing ---------- */
+.week{display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:10px; margin:34px 0 8px}
+.daycard{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 16px 14px; text-decoration:none; display:flex; flex-direction:column; gap:4px; box-shadow:var(--shadow); transition:.15s}
+.daycard:hover{border-color:var(--accent)}
+.daycard.today{background:var(--accent-wash); border-color:color-mix(in srgb, var(--accent) 45%, transparent)}
+.daycard .dn{font-family:"Newsreader",Georgia,serif; font-size:21px; font-weight:600}
+.daycard .dd{font-family:"DM Mono",ui-monospace,monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+.daycard.today .dd{color:var(--accent)}
+.bigcta{display:inline-block; margin-top:26px; background:var(--accent); color:var(--accent-ink); text-decoration:none; font-family:"DM Mono",ui-monospace,monospace; font-size:13px; letter-spacing:.08em; text-transform:uppercase; padding:14px 24px; border-radius:8px}
+.bigcta:hover{filter:brightness(1.08)}
+
+/* ---------- day switcher ---------- */
+.dayswitch{display:flex; gap:4px; margin-left:18px}
+.dayswitch a{font-family:"DM Mono",ui-monospace,monospace; font-size:11px; letter-spacing:.04em; color:var(--muted); text-decoration:none; padding:4px 7px; border-radius:6px}
+.dayswitch a:hover{color:var(--ink); background:var(--surface-2)}
+.dayswitch a.on{color:var(--accent-ink); background:var(--accent)}

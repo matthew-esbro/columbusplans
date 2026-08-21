@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Columbus Plans</title>
+<meta name="description" content="One link for every day of the week in Columbus: what to actually do tonight, verified against each venue's own listing and refreshed five days ahead.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400;1,6..72,600&family=Archivo:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <span class="mark">Columbus Plans</span>
+  <nav class="navlinks">
+    <a href="patios/">Patios</a>
+    <a href="#how">How it works</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">A standing reservation with your city</div>
+  <h1>One link for <em>every day</em> of the week.</h1>
+  <p class="lede">What's actually worth doing in Columbus, one page per day: the weekly rituals you can count on, the restaurants and bars that opened while you weren't looking, and every one-off on the calendar. Checked against each venue's own listing, refreshed five days ahead.</p>
+  <div class="week" id="week"></div>
+  <a class="bigcta" id="todaycta" href="thursday/">Today's plan</a>
+</div></header>
+
+<section id="how"><div class="wrap">
+  <div class="shead"><div>
+    <div class="eyebrow">Why trust it</div>
+    <h2>How it works</h2>
+  </div></div>
+  <div class="grid" style="margin-top:20px">
+    <article class="card"><h3>Verified, not vibes</h3><p>Hours, prices and dates are checked against each venue's own site. Anything we could not confirm is flagged with a verify tag rather than guessed at.</p></article>
+    <article class="card"><h3>Refreshed five days ahead</h3><p>Each day's page is re-researched five days before that day arrives, so the calendar you see is the current one, not last month's.</p></article>
+    <article class="card"><h3>No sludge</h3><p>No slideshows, no popups, no ten-year-old listicles. One fast page per day, and a patio guide for when the weather cooperates.</p></article>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <h3>Columbus Plans</h3>
+  <p>An independent guide to going out in Columbus, Ohio. Venue details belong to the venues; corrections and tips are welcome. Want to sponsor a day? <a class="link" href="mailto:matthew@esbrolabs.com">Say hello</a>.</p>
+</div></footer>
+<script>
+(function(){
+  var days=["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
+  var todayIdx=(new Date().getDay()+6)%7; /* 0=Monday */
+  var host=document.getElementById("week");
+  host.innerHTML=days.map(function(d,i){
+    var label=d.charAt(0).toUpperCase()+d.slice(1);
+    var cls=i===todayIdx?"daycard today":"daycard";
+    var tag=i===todayIdx?"Today":(i===(todayIdx+1)%7?"Tomorrow":"&nbsp;");
+    return '<a class="'+cls+'" href="'+d+'/"><span class="dd">'+tag+'</span><span class="dn">'+label+'</span></a>';
+  }).join("");
+  var cta=document.getElementById("todaycta");
+  cta.href=days[todayIdx]+"/";
+})();
+</script>
+</body>
+</html>
